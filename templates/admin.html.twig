@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  
+
+    <h1> Agences</h1>
+    <form action="/agence/ajouter">
+    <button type="submit">ajouter</button>
+    </form>
+    <table class="table">
+  <thead>
+    
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Telegence</th>
+      <th>Adressville</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for agence in agences %}
+    <tr>
+      <td>{{agence.id}}</td>
+      <td>{{agence.nom}}</td>
+      <td>{{agence.telagence}}</td>
+      <td>{{agence.adresseVille}}</td>
+      <td>
+      <form action="/agence/consulter/{{agence.id}}"><button type="submit">voir</button></form>
+      <form action="/agence/modifier/{{agence.id}}"><button type="submit">modifier</button></form>
+      <form action="/agence/supprimer/{{agence.id}}»"><button type="submit">supprimer</button></form>
+      </td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+  <h1> Voitures</h1>
+    <form action="/voiture/ajouter">
+    <button type="submit">ajouter</button>
+    </form>
+    <table class="table">
+  <thead>
+    <tr>
+      <th>Marque</th>
+      <th>Couleur</th>
+      <th>Description</th>
+      <th>Nombre de place</th>
+      <th>Nom agence</th>
+      <th >Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for voiture in voitures %}
+    <tr>
+      <td>{{voiture.marque}}</td>
+      <td>{{voiture.couleur}}</td>
+      <td>{{voiture.description}}</td>
+      <td>{{voiture.nbrplace}}</td>
+      <td></td>
+      <td></td>
+      <td>
+      <form action="/voiture/modifier/{{voiture.id}}"><button type="submit">modifier</button></form>
+      <form action="/voiture/supprimer/{{voiture.id}}»"><button type="submit">supprimer</button></form>
+      </td>
+    </tr>
+  {% endfor %}
+    
+  </tbody>
+</table>
+</body>
+</html>
